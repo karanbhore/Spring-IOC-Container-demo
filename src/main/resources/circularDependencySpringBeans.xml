@@ -1,0 +1,16 @@
+<!-- circularDependencySpringBeans.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Define the bean definitions with constructor injection -->
+	<bean id="aBean" class="com.prowings.circulardependency.A">
+		<constructor-arg ref="bBean" />
+	</bean>
+
+	<bean id="bBean" class="com.prowings.circulardependency.B">
+		<constructor-arg ref="aBean" />
+	</bean>
+
+</beans>
